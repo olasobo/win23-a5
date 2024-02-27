@@ -29,3 +29,22 @@ if $CALCULATOR 3 @ 2; then  # If the return code of $PROGRAM is zero (i.e. succe
   echo 'ERROR! An invalid run of the application (3 @ 2) apparently succeeded?!'
   exit 1
 fi
+
+# -- MY TESTS --
+# Test 04: Tests -q flag
+if ! $CALCULATOR -q 6 / 2; then
+  echo 'ERROR! Does not handle the -q flag!'
+  exit 1
+fi
+
+# Test 05: Ensure correct output for valid input
+if [[ $($CALCULATOR 5 "*" 3) -ne 15 ]]; then
+  echo 'ERROR! Produced wrong output for (5 * 3)!'
+  exit 1
+fi
+
+# Test 06: Tests with extra inputs
+if ! $CALCULATOR 10 - 4 bogus; then
+  echo 'ERROR! Failed to ignore extra input values!'
+  exit 1
+fi

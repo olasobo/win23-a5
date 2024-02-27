@@ -26,7 +26,7 @@ int main(int argc, char *argv[]){
     b = atoi(argv[4]);
   }
   // Evaluate operation based on user's choice.
-  int result; 
+  int result;
   switch (choice){
     case '+':
       result = add(a, b);
